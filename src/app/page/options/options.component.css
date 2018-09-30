@@ -1,0 +1,16 @@
+.option {
+    background-color: #d9edf7;
+    font-size: 1.2em;
+    width: 80%;
+    text-align : center;
+}
+
+.main {
+    height : 100vh;
+     margin-left : 10%;
+     width: 80%;
+      display : flex;
+      justify-content: center;
+      align-items:center;
+      flex-direction: column;
+}
