@@ -5,6 +5,7 @@ import { AppComponent } from './mainApp/app.component';
 import { LoginComponent } from './page/login/login.component';
 import { AppRoutingModule, routingComponents } from './routing/app-routing.module';
 import { OptionsComponent } from './page/options/options.component';
+import { Globals } from "./../global/theme";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { OptionsComponent } from './page/options/options.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

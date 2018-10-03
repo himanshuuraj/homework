@@ -1,4 +1,4 @@
-
+@import url("./../../../global/theme.scss");
 .main{
     background: white;
     height: 100vh;
@@ -12,7 +12,7 @@
 .login{
     text-align: center;
     height: 8%;
-    background: linear-gradient(to right, red, yellow);
+    //background: linear-gradient(to right, $GRADIENT_COLOR1, $GRADIENT_COLOR2);
     display: flex;
     justify-content: center;
     align-items: center;

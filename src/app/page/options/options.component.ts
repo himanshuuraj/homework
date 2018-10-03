@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionsComponent implements OnInit {
 
-  optionList: Array<string> = ["homework", "profile"];
+  optionList: Array<Object> = [
+    {id : "homework",  value: "Homework"},
+    {id : "notice",  value: "Notice"},
+    {id : "schedule",  value: "Schedule"}
+  ];
 
   constructor() { }
 
