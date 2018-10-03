@@ -4,6 +4,7 @@ import { LoginComponent } from './../page/login/login.component';
 import { OptionsComponent } from "./../page/options/options.component";
 import { SubjectListComponent } from "./../page/subject-list/subject-list.component";
 import { HeaderAndFooterComponent } from "./../page/header-and-footer/header-and-footer.component";
+import { HomeWorkDetailComponent } from '../page/home-work-detail/home-work-detail.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,9 @@ const routes: Routes = [
     // children: [
     //     { path: '', component: SubjectListComponent}
     //   ]
+  },
+  {
+    path: 'homeworkDetail', component : HomeWorkDetailComponent
   }
   // { 
   //   path: 'departments/:id', 

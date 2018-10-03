@@ -1,11 +1,28 @@
 <app-header></app-header>
 <div class="main-content">
-    <span class="date"><b>30-AUG-2016</b></span>
-    <div class="subjectListDivision">
-    <div class="option"
-     *ngFor="let option of subjectList; let i = index" [attr.data-index]="i">
-      {{ option.subjectName }} ({{ option.startDate }} - {{ option.endDate }})
+    <div style="font-size:1.6em; margin-bottom: 10%;">
+        <span>Mathematics</span>
     </div>
+    <div class="card" style="height:20%">
+        <div class="card-body" style="padding-left: 10%; padding-right: 10%;">
+          <p>
+              <span class="key">Assigned By</span>
+              <span class="value teacher">Pawan Malhotra Sir</span>
+          </p>
+          <p><span class="key">Assigned On</span>
+            <span class="value">21-AUG-2018</span></p>
+          <p><span class="key">End Date</span> <span class="value">21-AUG-2018</span></p>
+          <p><span class="key">Submitted On</span><span  class="value">21-AUG-2018</span></p>
+          <p><span class="key">Class Timing</span><span  class="value">(8:00 AM - 9:00 AM)</span></p>
+        </div>
+    </div>
+    <div class="card" style="padding:5%;">
+        <div class="card-header">
+            Homework Header
+        </div>
+        <div class="card-body" style="height:90%;">
+          <span>Write 10 times I love INDIA</span>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>
