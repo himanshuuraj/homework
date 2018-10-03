@@ -1,7 +1,10 @@
 <div class="main">
     <div class="alert alert-primary option"
-   
-     *ngFor="let option of optionList">
+     *ngFor="let option of optionList; let i = index" [attr.data-index]="i">
       {{ option.value }}
+      <div *ngIf="i === 0" class="badge">
+            3
+      </div>
     </div>
+    <app-footer></app-footer>
 </div>

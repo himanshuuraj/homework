@@ -1,16 +1,35 @@
 .option {
-    background-color: #d9edf7;
+    background: linear-gradient(to right, red, yellow);
     font-size: 1.2em;
     width: 80%;
     text-align : center;
+    border-top-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-top-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    position : relative;
 }
 
 .main {
     height : 100vh;
-     margin-left : 10%;
-     width: 80%;
-      display : flex;
-      justify-content: center;
-      align-items:center;
-      flex-direction: column;
+    margin-left : 10%;
+    width: 80%;
+    display : flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.badge{
+    width: 10%;
+    height: 44%;
+    position: absolute;
+    right: 6%;
+    top: -20%;
+    background-color: pink;
+    border-radius: 50%;
+    color: black;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }

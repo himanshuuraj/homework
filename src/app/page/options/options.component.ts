@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  FooterComponent
+} from "./../../usableComponent/footer/footer.component";
 
 @Component({
   selector: 'app-options',

@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="main-content">
+    <span class="date"><b>30-AUG-2016</b></span>
+    <div class="subjectListDivision">
+    <div class="option"
+     *ngFor="let option of subjectList; let i = index" [attr.data-index]="i">
+      {{ option.subjectName }} ({{ option.startDate }} - {{ option.endDate }})
+    </div>
+    </div>
+</div>
+<app-footer></app-footer>
