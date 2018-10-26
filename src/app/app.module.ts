@@ -11,6 +11,10 @@ import { HeaderComponent } from './usableComponent/header/header.component';
 import { SubjectListComponent } from './page/subject-list/subject-list.component';
 import { HeaderAndFooterComponent } from './page/header-and-footer/header-and-footer.component';
 import { HomeWorkDetailComponent } from './page/home-work-detail/home-work-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  AjaxCallService
+} from "./service/ajax-call.service";
 
 @NgModule({
   declarations: [
@@ -26,9 +30,10 @@ import { HomeWorkDetailComponent } from './page/home-work-detail/home-work-detai
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [Globals],
+  providers: [Globals, AjaxCallService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
