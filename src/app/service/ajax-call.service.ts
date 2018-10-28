@@ -1,21 +1,36 @@
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase';
+import {Http, Response, Headers, RequestOptions} from "@angular/http";
 @Injectable({
   providedIn: 'root'
 })
 export class AjaxCallService {
 
   config = {} as any;
+  headers : any = {};
+  options : any = {};
 
-  constructor() {
-    this.config = {
-      apiKey: "AIzaSyAPDYufx8zKvGKifi53PryxMVWQVfqGhJc",
-      authDomain: "calendar-f7596.firebaseapp.com",
-      databaseURL: "https://calendar-f7596.firebaseio.com",
-      projectId: "calendar-f7596",
-      storageBucket: "",
-      messagingSenderId: "778345395441"
-    };
-    firebase.initializeApp(this.config);
+  constructor(public http : Http) {
+    this.headers = new Headers({ 'Content-Type': 'application/json' });
+    this.options = new RequestOptions({ headers: this.headers });
   }
+
+  postRequest = (obj, url) => {
+    let body = JSON.stringify(obj);
+    return this.http.post(url, body, this.options );
+  }
+
+  getRequest = (url) => {
+    return this.http.get(url);
+  }
+
+  putRequest = (obj, url) => {
+    let body = JSON.stringify(obj);
+    return this.http.post(url, body, this.options );
+  }
+
+  deleteRequest = (obj, url) => {
+    let body = JSON.stringify(obj);
+    return this.http.post(url, body, this.options );
+  }
+
 }
