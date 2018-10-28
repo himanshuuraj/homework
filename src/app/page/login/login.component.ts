@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 // import { Globals } from '../../../global/theme';
 import { AjaxCallService } from "./../../service/ajax-call.service";
 import { GlobalUrl } from '../../../global/url';
+import {
+  GlobalTheme
+} from "./../../../global/theme";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,30 +16,43 @@ export class LoginComponent implements OnInit {
 
   email : String = "";
   password : String = "";
+  user = {
+    email : "hraj3116@gmail.com",
+    password : "12345"
+  };
   
-
-  onLogin = () => {
-    if(!this.email){
+  onLogin = (event) => {
+    if(!this.user.email){
       alert("Please enter valid emailId");
       return;
     }
-    if(!this.password){
+    if(!this.user.password){
       alert("Please enter valid password");
       return;
     }
     let obj = {
-      email : this.email,
-      password : this.password
+      email : this.user.email,
+      password : this.user.password
     }
     let loginSubscriber = this.ajaxCallService.postRequest(obj, this.globalUrl.API_LOGIN);
     loginSubscriber.subscribe((res: any) =>{
+      let response = res.json();
       console.log(res.json());
+      this.globalTheme.setToken(response.token);
+      console.log(this.globalTheme.getToken() + " " + "token");
     }, err => {
       console.log(err);
     });
   }
 
-  constructor(private ajaxCallService : AjaxCallService, private globalUrl : GlobalUrl) {
+  signUp = (event) => {
+    // this.router.navigateByUrl("/signup");
+  }
+
+  constructor(private ajaxCallService : AjaxCallService,
+     private globalUrl : GlobalUrl,
+     private globalTheme : GlobalTheme,
+     private router:Router) {
     // console.log(this.globalUrl.API_LOGIN);
   }
 

@@ -4,8 +4,8 @@ import { LoginComponent } from './../page/login/login.component';
 import { OptionsComponent } from "./../page/options/options.component";
 import { SubjectListComponent } from "./../page/subject-list/subject-list.component";
 import { HeaderAndFooterComponent } from "./../page/header-and-footer/header-and-footer.component";
-import { HomeWorkDetailComponent } from '../page/home-work-detail/home-work-detail.component';
-
+import { HomeWorkDetailComponent } from './../page/home-work-detail/home-work-detail.component';
+import { SignupComponent } from "./../page/signup/signup.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'homeworkDetail', component : HomeWorkDetailComponent
+  },
+  {
+    path: 'signup', component : SignupComponent
   }
   // { 
   //   path: 'departments/:id', 

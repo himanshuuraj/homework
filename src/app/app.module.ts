@@ -12,11 +12,13 @@ import { HeaderComponent } from './usableComponent/header/header.component';
 import { SubjectListComponent } from './page/subject-list/subject-list.component';
 import { HeaderAndFooterComponent } from './page/header-and-footer/header-and-footer.component';
 import { HomeWorkDetailComponent } from './page/home-work-detail/home-work-detail.component';
+import { SignupComponent } from './page/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import {
   AjaxCallService
 } from "./service/ajax-call.service";
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { HttpModule } from '@angular/http';
     HeaderComponent,
     SubjectListComponent,
     HeaderAndFooterComponent,
-    HomeWorkDetailComponent
+    HomeWorkDetailComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [GlobalTheme, AjaxCallService, GlobalUrl],
   bootstrap: [AppComponent]
