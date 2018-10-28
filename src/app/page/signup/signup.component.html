@@ -1,47 +1,80 @@
-<div class="main" >
+<div class="main" style="height : 100vh; padding : 1em;">
   <div style="height: 100%;">
   <div
     style="height: 10%; font-size: 1.8em;display: flex;justify-content: center;align-items: center;"        >
-    <b>Login</b>
+    <b>Signup</b>
   </div>
-  <div
-    style="height: 15%;display: flex;justify-content: center;align-items:center;flex-direction:column;color:#ccc;font-size:0.9em;"
-  >
-    <span>For instance Login to your AppName account,</span>
-    <span>just enter your valid, Email Id and password</span>
-  </div>
-  <form style="height : 36%">
-    <div class="form-group" style="height : 45%">
-      <label for="email" style="font-size:1.1em;">Email:</label>
-      <input type="email" 
-      style="height:45%" 
-      class="form-control" 
-      placeholder="Enter email"
-      />
+  <div style="display : block;height: 60%;">
+    <div class="form-group">
+      <label for="email" style="font-size:1.1em;">Select Option</label>
+      <select class="form-control" (change)="selectOption($event)">
+        <option value="">Select Option</option>
+        <option value="teacher">Teacher</option>
+        <option value="user">User</option>
+        <option value="student">Student</option>
+      </select>
     </div>
-    <div class="form-group" style="height : 45%">
-      <label for="pwd" style="font-size:1.1em;">Password:</label>
-      <input type="password"
-        style="height:45%" 
-        class="form-control"
-        placeholder="Enter password"/>
-    </div>
-  </form>
-  <div class="login"
-  (click)="onLogin($event)"
-  >
-    <b>Login</b>
+    <form style="height : 100%">
+      <div class="form-group" style="">
+        <label for="name" style="font-size:1.1em;">Name:</label>
+        <input type="text" 
+        style="" 
+        class="form-control" 
+        placeholder="Enter name"
+        />
+      </div>
+      <div class="form-group" style="">
+        <label for="email" style="font-size:1.1em;">Email:</label>
+        <input type="email"
+          style="" 
+          class="form-control"
+          placeholder="Enter email"/>
+      </div>
+      <div class="form-group" style="">
+        <label for="phone" style="font-size:1.1em;">Phone:</label>
+        <input type="number" 
+        style="" 
+        class="form-control" 
+        placeholder="Enter phone"
+        />
+      </div>
+      <div class="form-group" style="">
+        <label for="dob" style="font-size:1.1em;">Date of Birth:</label>
+        <input type="date"
+          max={getTodaysDate()}
+          class="form-control"/>
+      </div>
+      <div class="form-group" style="">
+        <label for="bgroup" style="font-size:1.1em;">Blood Group:</label>
+        <select class="form-control">
+          <option *ngFor="let bloodGroup of bloodGroupList" >
+            {{bloodGroup}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group" style="">
+        <label for="dob" style="font-size:1.1em;">Gender</label>
+        <select class="form-control">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+      </div>
+      <div class="form-group login" style="height:2.5em"
+        (click)="onSignUp($event)">
+          <b>Signup</b>
+        </div>
+    </form>
   </div>
-  <a
+  <!-- <a
     style="display:flex; justify-content:center"
     href="/signup"
     >
       <span><b><u>Sign Up</u></b></span>
-  </a>
-  <div
+  </a> -->
+  <!-- <div
     style="
       height: 30%;
     "
-  ></div>
+  ></div> -->
 </div>
 </div>
