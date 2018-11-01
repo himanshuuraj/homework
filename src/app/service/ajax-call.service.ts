@@ -14,7 +14,7 @@ export class AjaxCallService {
     this.options = new RequestOptions({ headers: this.headers });
   }
 
-  postRequest = (obj, url) => {
+  postRequest = (url, obj) => {
     let body = JSON.stringify(obj);
     return this.http.post(url, body, this.options );
   }

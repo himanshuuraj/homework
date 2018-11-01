@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   email : String = "";
   password : String = "";
   user = {
-    email : "hraj3116@gmail.com",
-    password : "12345"
+    email : "",
+    password : ""
   };
   
   onLogin = (event) => {
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   signUp = (event) => {
-    // this.router.navigateByUrl("/signup");
+    this.router.navigateByUrl("/signup");
   }
 
   constructor(private ajaxCallService : AjaxCallService,

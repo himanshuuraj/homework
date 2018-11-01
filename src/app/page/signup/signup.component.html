@@ -6,11 +6,12 @@
   </div>
   <div style="display : block;height: 60%;">
     <div class="form-group">
-      <label for="email" style="font-size:1.1em;">Select Option</label>
-      <select class="form-control" (change)="selectOption($event)">
+      <label for="email" style="font-size:1.1em;">Select User Type</label>
+      <select name="userType" [(ngModel)]="userType" 
+        class="form-control">
         <option value="">Select Option</option>
         <option value="teacher">Teacher</option>
-        <option value="user">User</option>
+        <option value="parent">Parent</option>
         <option value="student">Student</option>
       </select>
     </div>
@@ -19,6 +20,8 @@
         <label for="name" style="font-size:1.1em;">Name:</label>
         <input type="text" 
         style="" 
+        [(ngModel)] = "user.name"
+        name="name"
         class="form-control" 
         placeholder="Enter name"
         />
@@ -27,54 +30,78 @@
         <label for="email" style="font-size:1.1em;">Email:</label>
         <input type="email"
           style="" 
+          [(ngModel)] = "user.email"
+          name="email"
           class="form-control"
           placeholder="Enter email"/>
       </div>
       <div class="form-group" style="">
+          <label for="password" style="font-size:1.1em;">Password:</label>
+          <input type="password"
+            style="" 
+            [(ngModel)] = "user.password"
+            class="form-control"
+            name="password"
+            placeholder="Enter password"/>
+        </div>
+      <div class="form-group" style="">
         <label for="phone" style="font-size:1.1em;">Phone:</label>
-        <input type="number" 
-        style="" 
+        <input type="number"
+        [(ngModel)] = "user.phone"
         class="form-control" 
+        name="phone"
+        maxlength=10
         placeholder="Enter phone"
         />
       </div>
       <div class="form-group" style="">
         <label for="dob" style="font-size:1.1em;">Date of Birth:</label>
         <input type="date"
+          name="dob"
+          [(ngModel)] = "user.dob"
           max={getTodaysDate()}
           class="form-control"/>
       </div>
       <div class="form-group" style="">
+        <label for="gender" style="font-size:1.1em;">Gender</label>
+        <select [(ngModel)] = "user.gender" name="gender" class="form-control">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+      </div>
+      <div class="form-group" style="">
         <label for="bgroup" style="font-size:1.1em;">Blood Group:</label>
-        <select class="form-control">
+        <select [(ngModel)] = "user.bloodGroup" name="bloodgroup" class="form-control">
           <option *ngFor="let bloodGroup of bloodGroupList" >
             {{bloodGroup}}
           </option>
         </select>
       </div>
+      
       <div class="form-group" style="">
-        <label for="dob" style="font-size:1.1em;">Gender</label>
-        <select class="form-control">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+        <label for="address" style="font-size:1.1em;">Address</label>
+        <input [(ngModel)] = "user.address" type="text"
+        name="address"
+        class="form-control" 
+        placeholder="Enter address"
+        />
       </div>
       <div class="form-group login" style="height:2.5em"
         (click)="onSignUp($event)">
-          <b>Signup</b>
+          <b>Create</b>
         </div>
+        <a
+          style="display:flex; justify-content:center; margin-bottom : 5%;"
+          (click)="logIn($event)"
+          >
+            <span><b><u>Log In</u></b></span>
+        </a>
     </form>
   </div>
-  <!-- <a
-    style="display:flex; justify-content:center"
-    href="/signup"
-    >
-      <span><b><u>Sign Up</u></b></span>
-  </a> -->
-  <!-- <div
+  <div
     style="
       height: 30%;
     "
-  ></div> -->
+  ></div>
 </div>
 </div>
