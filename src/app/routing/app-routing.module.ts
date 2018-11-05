@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './../page/login/login.component';
 import { OptionsComponent } from "./../page/options/options.component";
 import { SubjectListComponent } from "./../page/subject-list/subject-list.component";
-import { HeaderAndFooterComponent } from "./../page/header-and-footer/header-and-footer.component";
 import { HomeWorkDetailComponent } from './../page/home-work-detail/home-work-detail.component';
 import { SignupComponent } from "./../page/signup/signup.component";
+import { AddclassandsectionComponent } from "./../page/class/addclassandsection/addclassandsection.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,6 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'signup', component : SignupComponent
+  },
+  {
+    path: 'addClassAndSection', component : AddclassandsectionComponent
   }
   // { 
   //   path: 'departments/:id', 

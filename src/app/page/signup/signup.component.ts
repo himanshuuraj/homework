@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AjaxCallService } from "./../../service/ajax-call.service";
 import { GlobalUrl } from "./../../../global/url";
+import { GlobalTheme } from "./../../../global/theme";
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -49,12 +50,11 @@ export class SignupComponent implements OnInit {
       return alert("Please enter the address");
     }
     this.user.dob = new Date(this.user.dob).getTime();
-    // console.log(e, this.user, this.userType);
     this.ajaxCallService.postRequest(this.globalUrl.API_SIGN_UP_PARENT, this.user).subscribe((res: any) =>{
       let response = res.json();
       console.log(response);
-      //this.globalTheme.setToken(response.token);
-      //console.log(this.globalTheme.getToken() + " " + "token");
+      this.globalTheme.setToken(response.token);
+      console.log(this.globalTheme.getToken() + " " + "token");
     }, err => {
       console.log(err);
     });
@@ -73,7 +73,11 @@ export class SignupComponent implements OnInit {
     return today;
   }
 
-  constructor(private router:Router, private ajaxCallService : AjaxCallService, private globalUrl : GlobalUrl) { }
+  constructor(private router:Router, 
+    private ajaxCallService : AjaxCallService,
+    private globalUrl : GlobalUrl,
+    private globalTheme : GlobalTheme
+  ) { }
 
   ngOnInit() {
   }

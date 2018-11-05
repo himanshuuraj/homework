@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input,  Output, EventEmitter } from '@angular/core'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  @Input() headerText: string;
+  @Input() backUrlString: string ;
+  // @Output()
+  // backButtonClick: EventEmitter<String> = new EventEmitter<String>(); //creating an output event
+  // https://ciphertrick.com/2017/07/24/parent-child-component-communication-angular/
+
+  constructor(
+    private router:Router
+  ){
+    this.router.navigateByUrl("/" + this.backUrlString);
+  }
 
   ngOnInit() {
+  }
+
+  backbuttonClick(event, routingLink){
+    //this.backButtonClick.emit(routingLink); //emmiting the event.
+    this
   }
 
 }

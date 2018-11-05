@@ -19,6 +19,8 @@ import {
 } from "./service/ajax-call.service";
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { AddclassandsectionComponent } from './page/class/addclassandsection/addclassandsection.component';
+import { ListclassandsectionComponent } from './page/class/listclassandsection/listclassandsection.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     SubjectListComponent,
     HeaderAndFooterComponent,
     HomeWorkDetailComponent,
-    SignupComponent
+    SignupComponent,
+    AddclassandsectionComponent,
+    ListclassandsectionComponent
   ],
   imports: [
     BrowserModule,
