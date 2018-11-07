@@ -5,16 +5,29 @@ import { Subject } from 'rxjs';
 })
 export class CommunicatingService {
 
-  private subject = new Subject();
+  private spinnerSubject = new Subject();
+  private modalSubject = new Subject();
+
 
   constructor() { }
 
   spinner(){
-    return this.subject;
+    return this.spinnerSubject;
   }
 
   hideOrShowSpinner(flag){
-    return this.subject.next(flag);
+    return this.spinnerSubject.next(flag);
+  }
+
+  modal(){
+    return this.modalSubject;
+  }
+
+  showModal(header, body){
+    return this.modalSubject.next({
+      header : header,
+      body : body
+    });
   }
 
   hideOrShowModal(){

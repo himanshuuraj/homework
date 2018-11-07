@@ -38,9 +38,12 @@ export class AddclassandsectionComponent implements OnInit {
       let response = res.json();
       console.log(response);
       this.communicatingService.hideOrShowSpinner(false);
+      this.communicatingService.showModal("Message", response.message);
+      this.router.navigateByUrl("classOption");
     }, err => {
       console.log(err);
       this.communicatingService.hideOrShowSpinner(false);
+      this.communicatingService.showModal("Error", err.toString());
     });
   }
 

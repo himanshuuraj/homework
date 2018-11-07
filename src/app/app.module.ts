@@ -26,6 +26,7 @@ import { OptionComponent } from './option/option.component';
 import { AdminOptionComponent } from './page/admin/admin-option/admin-option.component';
 import { MainContentComponent } from './usableComponent/main-content/main-content.component';
 import { SpinnerComponent } from './usableComponent/spinner/spinner.component';
+import { InfoModalComponent } from './usableComponent/info-modal/info-modal.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SpinnerComponent } from './usableComponent/spinner/spinner.component';
     OptionComponent,
     AdminOptionComponent,
     MainContentComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    InfoModalComponent
   ],
   imports: [
     BrowserModule,

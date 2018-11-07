@@ -1,0 +1,20 @@
+<div class="spinner" *ngIf="showModalFlag">
+  <div class="modal">
+    <div class="header">
+      <div class="headerText">
+        <b>{{headerText}}</b>
+      </div>
+      <div class="closeModal" (click)="closeModal($event)">
+        <span><b>X</b></span>
+      </div>
+    </div>
+    <div class="content">
+      {{content}}
+    </div>
+    <div class="footer">
+        <button type="button" class="btn btn-success okbutton" (click)="closeModal($event)">
+          OK
+        </button>
+    </div>
+  </div>
+</div>
