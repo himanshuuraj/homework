@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './../page/login/login.component';
 import { OptionsComponent } from "./../page/options/options.component";
-import { SubjectListComponent } from "./../page/subject-list/subject-list.component";
+// import { SubjectListComponent } from "./../page/subject-list/subject-list.component";
 import { HomeWorkDetailComponent } from './../page/home-work-detail/home-work-detail.component';
 import { SignupComponent } from "./../page/signup/signup.component";
 import { AddclassandsectionComponent } from "./../page/admin/class/addclassandsection/addclassandsection.component";
@@ -13,6 +13,7 @@ import { SubjectoptionComponent } from "./../page/admin/subject/subjectoption/su
 import { AddsubjectComponent } from "./../page/admin/subject/addsubject/addsubject.component";
 import { TeacherOptionComponent } from "./../page/admin/teacher/teacher-option/teacher-option.component";
 import { TeacherlistComponent } from "./../page/admin/teacher/teacherlist/teacherlist.component";
+import { SubjectlistComponent } from "./../page/admin/subject/subjectlist/subjectlist.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'teacherOption', component: TeacherOptionComponent},
   { path: 'teacherList', component: TeacherlistComponent},
   { path: 'deleteTeacher', component: TeacherlistComponent },
-  { path: 'subjectList', component: SubjectListComponent,
+  { path: 'deleteSubject', component: SubjectlistComponent },
+  { path: 'subjectList', component: SubjectlistComponent,
     // children: [
     //     { path: '', component: SubjectListComponent}
     //   ]

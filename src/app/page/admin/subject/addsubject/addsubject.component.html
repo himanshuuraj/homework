@@ -1,3 +1,46 @@
-<p>
-  addsubject works!
-</p>
+<app-header headerText="Add Subject" backUrlString="subjectOption"></app-header>
+<main-content>
+    <div class="main">
+    <div style="height: 100%;width : 100%">
+        <form style="height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;">
+          <div class="form-group" *ngIf="teacherList.length > 0" style="">
+              <label for="teacherList" style="font-size:1.1em;">Teacher</label>
+              <select [(ngModel)]="selectedTeacher" name="selectedTeacher" class="form-control" 
+                (change)="changeTeacher($event)" aria-placeholder="Select Teacher">
+                <option *ngFor="let teacher of teacherList; let i = index" 
+                  [attr.data-index]="i" [ngValue]="teacher">
+                  {{ teacher.teacherName }}
+                </option>
+              </select>
+          </div>
+          <div class="form-group" *ngIf="teacherList.length > 0" style="">
+              <label for="classAndSectionList" style="font-size:1.1em;">Class And Section</label>
+              <select [(ngModel)]="selectedClassAndSection" name="selectedClassAndSection" class="form-control" 
+                (change)="changeTeacher($event)" aria-placeholder="Select Class">
+                <option *ngFor="let classSection of classAndSectionList; let i = index" 
+                  [attr.data-index]="i" [ngValue]="classSection">
+                  {{ classSection.classAndSectionName }}
+                </option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="name" style="font-size:1.1em;">Subject</label>
+            <input type="text"
+            [(ngModel)] = "subjectName"
+            name="className"
+            class="form-control" 
+            placeholder="Enter subject"
+            />
+          </div>
+          <div class="alert alert-primary option" 
+            style="height:2.4em;display: flex;align-items: center; width : 100%; justify-content: center"
+            (click)="addSubject($event)">
+              <b>Add</b>
+          </div>
+        </form>
+    </div>
+  </div>
+</main-content>

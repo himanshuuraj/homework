@@ -10,7 +10,7 @@ export class SubjectoptionComponent implements OnInit {
 
   optionList: Array<Object> = [
     {id : "addSubject",  value: "Add Subject"},
-    {id : "viewSubjectList",  value: "View Subject List"},
+    {id : "subjectList",  value: "Subject List"},
     //{id : "editClassAndSection",  value: "Edit Class"},
     {id : "deleteSubject",  value: "Delete Subject"}
   ];
@@ -18,7 +18,10 @@ export class SubjectoptionComponent implements OnInit {
   classOptionClick(e, option){
     console.log(e, option);
     let id = option.id;
-    this.router.navigateByUrl(id);
+    if(id === "deleteSubject")
+      this.router.navigate([id, {delete: true}]);
+    else 
+      this.router.navigateByUrl(id);
 
   }
 

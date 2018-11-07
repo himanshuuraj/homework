@@ -15,4 +15,8 @@ export class GlobalUrl{
     API_TO_GET_TEACHER_LIST : string = HOST + "/teacher/getAll";
     API_TO_DELETE_TEACHER : string = HOST + "/teacher/delete/";
 
+    API_TO_ADD_SUBJECT : string = HOST + "/subject/create";
+    API_TO_GET_SUBJECT_LIST : string = HOST + "/subject/getAll";
+    API_TO_DELETE_SUBJECT : string = HOST + "/subject/delete/";
+
   }
