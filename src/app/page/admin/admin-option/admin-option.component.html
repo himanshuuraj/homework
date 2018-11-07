@@ -1,0 +1,10 @@
+<app-header headerText="Options" backUrlString=""></app-header>
+<main-content>
+    <div class="main">
+        <div class="alert alert-primary option" (click)="adminOptionClick($event, option)"
+            *ngFor="let option of optionList; let i = index" [attr.data-index]="i">
+            {{ option.value }}
+        </div>
+    </div>
+</main-content>
+
