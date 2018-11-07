@@ -8,9 +8,13 @@ import { SignupComponent } from "./../page/signup/signup.component";
 import { AddclassandsectionComponent } from "./../page/admin/class/addclassandsection/addclassandsection.component";
 import { ClassoptionComponent } from "./../page/admin/class/classoption/classoption.component";
 import { AdminOptionComponent } from "./../page/admin/admin-option/admin-option.component";
+import {
+  ListclassandsectionComponent
+} from "./../page/admin/class/listclassandsection/listclassandsection.component";
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'classOption', component: ClassoptionComponent},
+  { path: 'viewClassAndSection', component: ListclassandsectionComponent},
   { path: 'login', component: LoginComponent },
   { path: 'option', component: OptionsComponent},
   { path: 'adminOption', component: AdminOptionComponent},

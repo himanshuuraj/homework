@@ -3,3 +3,9 @@
     padding-top : 10vh;
     background-color : #f1f2f2
 }
+
+.main-content{
+    position : relative; 
+    display : block;
+    height : 90vh
+}

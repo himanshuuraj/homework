@@ -1,3 +1,9 @@
-<p>
-  listclassandsection works!
-</p>
+<app-header headerText="Class List" backUrlString="classOption"></app-header>
+<main-content>
+    <div class="main">
+        <div class="alert alert-primary option" (click)="classOptionClick($event, option)"
+            *ngFor="let option of classAndSectionList; let i = index" [attr.data-index]="i">
+            {{ option.classAndSectionName }}
+        </div>
+    </div>
+</main-content>
