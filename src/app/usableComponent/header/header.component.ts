@@ -17,15 +17,15 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router:Router
   ){
-    this.router.navigateByUrl("/" + this.backUrlString);
+    // this.router.navigateByUrl("/" + this.backUrlString);
   }
 
   ngOnInit() {
   }
 
   backbuttonClick(event, routingLink){
-    //this.backButtonClick.emit(routingLink); //emmiting the event.
-    this
+    if(!this.backUrlString) return;
+    this.router.navigateByUrl("/" + this.backUrlString);
   }
 
 }

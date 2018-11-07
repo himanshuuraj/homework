@@ -19,8 +19,12 @@ import {
 } from "./service/ajax-call.service";
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { AddclassandsectionComponent } from './page/class/addclassandsection/addclassandsection.component';
-import { ListclassandsectionComponent } from './page/class/listclassandsection/listclassandsection.component';
+import { AddclassandsectionComponent } from './page/admin/class/addclassandsection/addclassandsection.component';
+import { ListclassandsectionComponent } from './page/admin/class/listclassandsection/listclassandsection.component';
+import { ClassoptionComponent } from './page/admin/class/classoption/classoption.component';
+import { OptionComponent } from './option/option.component';
+import { AdminOptionComponent } from './page/admin/admin-option/admin-option.component';
+import { MainContentComponent } from './usableComponent/main-content/main-content.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { ListclassandsectionComponent } from './page/class/listclassandsection/l
     HomeWorkDetailComponent,
     SignupComponent,
     AddclassandsectionComponent,
-    ListclassandsectionComponent
+    ListclassandsectionComponent,
+    ClassoptionComponent,
+    OptionComponent,
+    AdminOptionComponent,
+    MainContentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.option {
+    background: linear-gradient(to right, red, yellow);
+    font-size: 1.2em;
+    width: 80%;
+    text-align : center;
+    border-top-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-top-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    position : relative;
+}
+
+.main {
+    height : -webkit-fill-available;
+    margin-left : 10%;
+    margin-right: 10%;
+    display : flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}

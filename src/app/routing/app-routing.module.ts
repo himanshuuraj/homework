@@ -5,12 +5,15 @@ import { OptionsComponent } from "./../page/options/options.component";
 import { SubjectListComponent } from "./../page/subject-list/subject-list.component";
 import { HomeWorkDetailComponent } from './../page/home-work-detail/home-work-detail.component';
 import { SignupComponent } from "./../page/signup/signup.component";
-import { AddclassandsectionComponent } from "./../page/class/addclassandsection/addclassandsection.component";
-
+import { AddclassandsectionComponent } from "./../page/admin/class/addclassandsection/addclassandsection.component";
+import { ClassoptionComponent } from "./../page/admin/class/classoption/classoption.component";
+import { AdminOptionComponent } from "./../page/admin/admin-option/admin-option.component";
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'classOption', component: ClassoptionComponent},
   { path: 'login', component: LoginComponent },
   { path: 'option', component: OptionsComponent},
+  { path: 'adminOption', component: AdminOptionComponent},
   { path: 'subjectList', component: SubjectListComponent,
     // children: [
     //     { path: '', component: SubjectListComponent}
