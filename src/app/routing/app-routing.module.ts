@@ -11,10 +11,12 @@ import { AdminOptionComponent } from "./../page/admin/admin-option/admin-option.
 import {
   ListclassandsectionComponent
 } from "./../page/admin/class/listclassandsection/listclassandsection.component";
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'classOption', component: ClassoptionComponent},
   { path: 'viewClassAndSection', component: ListclassandsectionComponent},
+  { path: 'deleteClassAndSection', component: ListclassandsectionComponent },
   { path: 'login', component: LoginComponent },
   { path: 'option', component: OptionsComponent},
   { path: 'adminOption', component: AdminOptionComponent},

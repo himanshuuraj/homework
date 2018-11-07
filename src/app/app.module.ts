@@ -27,7 +27,6 @@ import { AdminOptionComponent } from './page/admin/admin-option/admin-option.com
 import { MainContentComponent } from './usableComponent/main-content/main-content.component';
 import { SpinnerComponent } from './usableComponent/spinner/spinner.component';
 import { InfoModalComponent } from './usableComponent/info-modal/info-modal.component';
-import { DeleteClassAndSectionComponent } from './usableComponent/delete-class-and-section/delete-class-and-section.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +47,7 @@ import { DeleteClassAndSectionComponent } from './usableComponent/delete-class-a
     AdminOptionComponent,
     MainContentComponent,
     SpinnerComponent,
-    InfoModalComponent,
-    DeleteClassAndSectionComponent
+    InfoModalComponent
   ],
   imports: [
     BrowserModule,

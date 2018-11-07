@@ -10,4 +10,5 @@ export class GlobalUrl{
 
     API_TO_ADD_CLASS_AND_SECTION : string = HOST + "/classAndSection/create";
     API_TO_GET_CLASS_AND_SECTION_LIST : string = HOST + "/classAndSection/getAll";
+    API_TO_DELETE_CLASS_AND_SECTION : string = HOST + "/classAndSection/delete/" 
   }

@@ -25,12 +25,11 @@ export class AjaxCallService {
 
   putRequest = (obj, url) => {
     let body = JSON.stringify(obj);
-    return this.http.post(url, body, this.options );
+    return this.http.put(url, body, this.options );
   }
 
-  deleteRequest = (obj, url) => {
-    let body = JSON.stringify(obj);
-    return this.http.post(url, body, this.options );
+  deleteRequest = (url) => {
+    return this.http.delete(url, this.options);
   }
 
 }
