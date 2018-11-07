@@ -27,6 +27,10 @@ import { AdminOptionComponent } from './page/admin/admin-option/admin-option.com
 import { MainContentComponent } from './usableComponent/main-content/main-content.component';
 import { SpinnerComponent } from './usableComponent/spinner/spinner.component';
 import { InfoModalComponent } from './usableComponent/info-modal/info-modal.component';
+import { SubjectoptionComponent } from './page/admin/subject/subjectoption/subjectoption.component';
+import { AddsubjectComponent } from './page/admin/subject/addsubject/addsubject.component';
+import { TeacherOptionComponent } from './page/admin/teacher/teacher-option/teacher-option.component';
+import { TeacherlistComponent } from './page/admin/teacher/teacherlist/teacherlist.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { InfoModalComponent } from './usableComponent/info-modal/info-modal.comp
     AdminOptionComponent,
     MainContentComponent,
     SpinnerComponent,
-    InfoModalComponent
+    InfoModalComponent,
+    SubjectoptionComponent,
+    AddsubjectComponent,
+    TeacherOptionComponent,
+    TeacherlistComponent
   ],
   imports: [
     BrowserModule,

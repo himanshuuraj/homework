@@ -1,11 +1,11 @@
-<div class="main" style="height : 100vh; padding : 1em;">
+<div class="main-content" style="height : 100vh; padding : 1em;">
   <div style="height: 100%;">
   <div
-    style="height: 10%; font-size: 1.8em;display: flex;justify-content: center;align-items: center;"        >
+    style="font-size: 1.8em;display: flex;justify-content: center;align-items: center;"        >
     <b>Signup</b>
   </div>
-  <div style="display : block;height: 60%;">
-    <div class="form-group">
+  <div style="display : block;">
+    <!-- <div class="form-group">
       <label for="email" style="font-size:1.1em;">Select User Type</label>
       <select name="userType" [(ngModel)]="userType" 
         class="form-control">
@@ -14,7 +14,7 @@
         <option value="parent">Parent</option>
         <option value="student">Student</option>
       </select>
-    </div>
+    </div> -->
     <form style="height : 100%">
       <div class="form-group" style="">
         <label for="name" style="font-size:1.1em;">Name:</label>
@@ -50,7 +50,8 @@
         [(ngModel)] = "user.phone"
         class="form-control" 
         name="phone"
-        maxlength=10
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        maxlength="10"
         placeholder="Enter phone"
         />
       </div>
@@ -80,7 +81,7 @@
       
       <div class="form-group" style="">
         <label for="address" style="font-size:1.1em;">Address</label>
-        <input [(ngModel)] = "user.address" type="text"
+        <input [(ngModel)] = "user.address" type="textarea"
         name="address"
         class="form-control" 
         placeholder="Enter address"
@@ -90,18 +91,13 @@
         (click)="onSignUp($event)">
           <b>Create</b>
       </div>
-        <a
+        <!-- <a
           style="display:flex; justify-content:center; margin-bottom : 5%;"
           (click)="logIn($event)"
           >
             <span><b><u>Log In</u></b></span>
-        </a>
+        </a> -->
     </form>
   </div>
-  <div
-    style="
-      height: 30%;
-    "
-  ></div>
 </div>
 </div>

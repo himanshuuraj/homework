@@ -3,15 +3,16 @@ import { ActivatedRoute } from '@angular/router';
 import { AjaxCallService } from "./../../../../service/ajax-call.service";
 import { GlobalTheme } from "./../../../../../global/theme";
 import { GlobalUrl } from "./../../../../../global/url";
-import { CommunicatingService } from "./../../../../service/communicating-service.service"
-@Component({
-  selector: 'app-listclassandsection',
-  templateUrl: './listclassandsection.component.html',
-  styleUrls: ['./listclassandsection.component.css']
-})
-export class ListclassandsectionComponent implements OnInit {
+import { CommunicatingService } from "./../../../../service/communicating-service.service";
 
-  private classAndSectionList : Array<Object> = [];
+@Component({
+  selector: 'app-teacherlist',
+  templateUrl: './teacherlist.component.html',
+  styleUrls: ['./teacherlist.component.css']
+})
+export class TeacherlistComponent implements OnInit {
+
+  private teacherList : Array<Object> = [];
   private deleteMode : boolean = false
 
   constructor(
@@ -21,15 +22,15 @@ export class ListclassandsectionComponent implements OnInit {
     private communicatingService : CommunicatingService,
     private route: ActivatedRoute
   ) { 
-    this.getClassAndSectionList();
+    this.getTeachersList();
   }
 
-  getClassAndSectionList(){
-    this.ajaxCallService.getRequest(this.globalUrl.API_TO_GET_CLASS_AND_SECTION_LIST)
+  getTeachersList(){
+    this.ajaxCallService.getRequest(this.globalUrl.API_TO_GET_TEACHER_LIST)
     .subscribe((res: any) =>{
       let response = res.json();
       console.log(response);
-      this.classAndSectionList = response.body;
+      this.teacherList = response.body;
     }, err => {
       console.log(err);
       this.communicatingService.showModal("Error", err.toString());
@@ -45,16 +46,16 @@ export class ListclassandsectionComponent implements OnInit {
    });
   }
 
-  deleteClassAndSection(e, option){
+  deleteTeacher(e, option){
     let id = option._id;
-    let url = this.globalUrl.API_TO_DELETE_CLASS_AND_SECTION + id;
+    let url = this.globalUrl.API_TO_DELETE_TEACHER + id;
     this.communicatingService.hideOrShowSpinner(true);
     this.ajaxCallService.deleteRequest(url).subscribe((res: any) =>{
       let response = res.json();
       console.log(response);
       this.communicatingService.hideOrShowSpinner(false);
       this.communicatingService.showModal("Message", response.message);
-      this.getClassAndSectionList();
+      this.getTeachersList();
     }, err => {
       console.log(err);
       this.communicatingService.hideOrShowSpinner(false);

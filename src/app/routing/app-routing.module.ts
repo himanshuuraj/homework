@@ -8,9 +8,11 @@ import { SignupComponent } from "./../page/signup/signup.component";
 import { AddclassandsectionComponent } from "./../page/admin/class/addclassandsection/addclassandsection.component";
 import { ClassoptionComponent } from "./../page/admin/class/classoption/classoption.component";
 import { AdminOptionComponent } from "./../page/admin/admin-option/admin-option.component";
-import {
-  ListclassandsectionComponent
-} from "./../page/admin/class/listclassandsection/listclassandsection.component";
+import { ListclassandsectionComponent } from "./../page/admin/class/listclassandsection/listclassandsection.component";
+import { SubjectoptionComponent } from "./../page/admin/subject/subjectoption/subjectoption.component";
+import { AddsubjectComponent } from "./../page/admin/subject/addsubject/addsubject.component";
+import { TeacherOptionComponent } from "./../page/admin/teacher/teacher-option/teacher-option.component";
+import { TeacherlistComponent } from "./../page/admin/teacher/teacherlist/teacherlist.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,6 +22,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'option', component: OptionsComponent},
   { path: 'adminOption', component: AdminOptionComponent},
+  { path: 'subjectOption', component: SubjectoptionComponent},
+  { path: 'addSubject', component: AddsubjectComponent},
+  { path: 'teacherOption', component: TeacherOptionComponent},
+  { path: 'teacherList', component: TeacherlistComponent},
+  { path: 'deleteTeacher', component: TeacherlistComponent },
   { path: 'subjectList', component: SubjectListComponent,
     // children: [
     //     { path: '', component: SubjectListComponent}

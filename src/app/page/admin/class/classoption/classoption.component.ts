@@ -10,7 +10,7 @@ export class ClassoptionComponent implements OnInit {
 
   optionList: Array<Object> = [
     {id : "addClassAndSection",  value: "Add Class"},
-    {id : "viewClassAndSection",  value: "View Class"},
+    {id : "viewClassAndSection",  value: "Class List"},
     // {id : "editClassAndSection",  value: "Edit Class"},
     {id : "deleteClassAndSection",  value: "Delete Class"}
   ];

@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { AjaxCallService } from "./../../service/ajax-call.service";
 import { GlobalUrl } from "./../../../global/url";
 import { GlobalTheme } from "./../../../global/theme";
+import { ActivatedRoute } from '@angular/router';
+import { CommunicatingService } from "./../../service/communicating-service.service";
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -18,7 +21,7 @@ export class SignupComponent implements OnInit {
     name : "",
     email : "",
     password : "",
-    phone : "9876543210",
+    phone : "",
     dob : 0,
     bloodGroup : "",
     gender : "",
@@ -50,13 +53,28 @@ export class SignupComponent implements OnInit {
       return alert("Please enter the address");
     }
     this.user.dob = new Date(this.user.dob).getTime();
-    this.ajaxCallService.postRequest(this.globalUrl.API_SIGN_UP_PARENT, this.user).subscribe((res: any) =>{
+    this.signUp();
+  }
+
+  signUp(){
+    let url = "";
+    if(this.userType === "parent"){
+      url = this.globalUrl.API_SIGN_UP_PARENT;
+    }else if(this.userType === "teacher"){
+      url = this.globalUrl.API_SIGN_UP_TEACHER;
+    }
+    this.communicatingService.hideOrShowSpinner(true);
+    this.ajaxCallService.postRequest(url, this.user).subscribe((res: any) =>{
       let response = res.json();
       console.log(response);
-      this.globalTheme.setToken(response.token);
-      console.log(this.globalTheme.getToken() + " " + "token");
+      this.communicatingService.hideOrShowSpinner(false);
+      this.communicatingService.showModal("Message", response.message);
+      //this.globalTheme.setToken(response.token);
+      //console.log(this.globalTheme.getToken() + " " + "token");
     }, err => {
       console.log(err);
+      this.communicatingService.hideOrShowSpinner(false);
+      this.communicatingService.showModal("Error", err.toString());
     });
   }
 
@@ -76,10 +94,18 @@ export class SignupComponent implements OnInit {
   constructor(private router:Router, 
     private ajaxCallService : AjaxCallService,
     private globalUrl : GlobalUrl,
-    private globalTheme : GlobalTheme
+    private globalTheme : GlobalTheme,
+    private route : ActivatedRoute,
+    private communicatingService : CommunicatingService,
   ) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      let type = params['type']; // (+) converts string 'id' to a number
+      if(type)
+        this.selectedOption = this.userType = type;
+      console.log(type, "type");
+   });
   }
 
   logIn = (event) => {

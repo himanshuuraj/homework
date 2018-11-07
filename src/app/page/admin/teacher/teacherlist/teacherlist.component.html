@@ -1,0 +1,12 @@
+<app-header headerText="Teachers List" backUrlString="teacherOption"></app-header>
+<main-content>
+    <div class="main">
+        <div class="alert alert-primary option"
+            *ngFor="let option of teacherList; let i = index" [attr.data-index]="i">
+            {{ option.teacherName }}
+            <div *ngIf="deleteMode" class="badge" (click)="deleteTeacher($event, option)" >
+                <span> X </span>
+            </div>
+        </div>
+    </div>
+</main-content>
