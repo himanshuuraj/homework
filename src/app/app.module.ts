@@ -32,6 +32,7 @@ import { AddsubjectComponent } from './page/admin/subject/addsubject/addsubject.
 import { TeacherOptionComponent } from './page/admin/teacher/teacher-option/teacher-option.component';
 import { TeacherlistComponent } from './page/admin/teacher/teacherlist/teacherlist.component';
 import { SubjectlistComponent } from './page/admin/subject/subjectlist/subjectlist.component';
+import { StudentoptionComponent } from './page/admin/student/studentoption/studentoption.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { SubjectlistComponent } from './page/admin/subject/subjectlist/subjectli
     AddsubjectComponent,
     TeacherOptionComponent,
     TeacherlistComponent,
-    SubjectlistComponent
+    SubjectlistComponent,
+    StudentoptionComponent
   ],
   imports: [
     BrowserModule,

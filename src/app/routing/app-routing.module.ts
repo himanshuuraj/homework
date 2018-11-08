@@ -14,7 +14,7 @@ import { AddsubjectComponent } from "./../page/admin/subject/addsubject/addsubje
 import { TeacherOptionComponent } from "./../page/admin/teacher/teacher-option/teacher-option.component";
 import { TeacherlistComponent } from "./../page/admin/teacher/teacherlist/teacherlist.component";
 import { SubjectlistComponent } from "./../page/admin/subject/subjectlist/subjectlist.component";
-
+import { StudentoptionComponent } from "./../page/admin/student/studentoption/studentoption.component";
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'classOption', component: ClassoptionComponent},
@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'teacherList', component: TeacherlistComponent},
   { path: 'deleteTeacher', component: TeacherlistComponent },
   { path: 'deleteSubject', component: SubjectlistComponent },
+  { path: 'studentOption', component: StudentoptionComponent},
   { path: 'subjectList', component: SubjectlistComponent,
     // children: [
     //     { path: '', component: SubjectListComponent}

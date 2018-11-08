@@ -24,9 +24,8 @@ export class TeacherOptionComponent implements OnInit {
       this.router.navigate([id, {delete: true}]);
     else
       this.router.navigateByUrl(id);
-
   }
-
+  
   constructor(private router:Router) { }
 
   ngOnInit() {

@@ -28,6 +28,9 @@ export class SignupComponent implements OnInit {
     address : ""
   };
 
+  classAndSectionList : Array<Object> = [];
+  selectedClassAndSection : any = {};
+
   bloodGroupList = ["O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-"];
 
   onSignUp(e){
@@ -62,6 +65,10 @@ export class SignupComponent implements OnInit {
       url = this.globalUrl.API_SIGN_UP_PARENT;
     }else if(this.userType === "teacher"){
       url = this.globalUrl.API_SIGN_UP_TEACHER;
+    }else if(this.userType === "student"){
+      url = this.globalUrl.API_SIGN_UP_STUDENT;
+      this.user.classAndSectionId = this.selectedClassAndSection._id;
+      this.user.classAndSectionName = this.selectedClassAndSection.classAndSectionName;
     }
     this.communicatingService.hideOrShowSpinner(true);
     this.ajaxCallService.postRequest(url, this.user).subscribe((res: any) =>{
@@ -99,11 +106,25 @@ export class SignupComponent implements OnInit {
     private communicatingService : CommunicatingService,
   ) { }
 
+  getClassAndSectionList(){
+    this.ajaxCallService.getRequest(this.globalUrl.API_TO_GET_CLASS_AND_SECTION_LIST)
+    .subscribe((res: any) =>{
+      let response = res.json();
+      console.log(response);
+      this.classAndSectionList = response.body;
+    }, err => {
+      console.log(err);
+      this.communicatingService.showModal("Error", err.toString());
+    });
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       let type = params['type']; // (+) converts string 'id' to a number
       if(type)
         this.selectedOption = this.userType = type;
+      if(type === "student")
+        this.getClassAndSectionList();
       console.log(type, "type");
    });
   }

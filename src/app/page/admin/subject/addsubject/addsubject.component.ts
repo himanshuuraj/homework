@@ -16,10 +16,7 @@ export class AddsubjectComponent implements OnInit {
   teacherList : Array<Object> = [];
   classAndSectionList : Array<Object> = [];
   selectedTeacher : any = { teacherId : "", teacherName : ""};
-  selectedClassAndSection : any = {
-    classAndSectionId : "",
-    classAndSectionName : ""
-  };
+  selectedClassAndSection : any = {};
 
   constructor(private router:Router, 
     private ajaxCallService : AjaxCallService,
