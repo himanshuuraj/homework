@@ -28,6 +28,11 @@ export class SignupComponent implements OnInit {
     address : ""
   };
 
+  selectedStudentList : Array<Object> = [];
+
+  studentList : Array<Object> = [];
+  selectedStudent : any = {};
+
   classAndSectionList : Array<Object> = [];
   selectedClassAndSection : any = {};
 
@@ -52,8 +57,13 @@ export class SignupComponent implements OnInit {
     else if(!this.user.gender){
       return alert("Please enter the gender");
     }
-    else if(this.userType === "parent" && !this.user.address){
-      return alert("Please enter the address");
+    else if(this.userType === "parent"){
+      if(!this.user.address){
+        return alert("Please enter the address");
+      }
+      if(this.selectedStudentList.length === 0){
+        return alert("Please select a  student");
+      }
     }
     this.user.dob = new Date(this.user.dob).getTime();
     this.signUp();
@@ -63,6 +73,7 @@ export class SignupComponent implements OnInit {
     let url = "";
     if(this.userType === "parent"){
       url = this.globalUrl.API_SIGN_UP_PARENT;
+      this.user.student = this.selectedStudentList;
     }else if(this.userType === "teacher"){
       url = this.globalUrl.API_SIGN_UP_TEACHER;
     }else if(this.userType === "student"){
@@ -123,10 +134,35 @@ export class SignupComponent implements OnInit {
       let type = params['type']; // (+) converts string 'id' to a number
       if(type)
         this.selectedOption = this.userType = type;
-      if(type === "student")
+      if(type === "student" || type === "parent")
         this.getClassAndSectionList();
       console.log(type, "type");
    });
+  }
+
+  getStudents(e){
+    let url = this.globalUrl.API_TO_GET_STUDENT_OF_CLASSANDSECTION;
+    url += this.selectedClassAndSection._id;
+    this.communicatingService.hideOrShowSpinner(true);
+    this.ajaxCallService.getRequest(url)
+    .subscribe((res: any) =>{
+      let response = res.json();
+      console.log(response);
+      this.studentList = response.body;
+      this.communicatingService.hideOrShowSpinner(false);
+    }, err => {
+      console.log(err);
+      this.communicatingService.hideOrShowSpinner(false);
+      this.communicatingService.showModal("Error", err.toString());
+    });
+  }
+
+  addSelectedStudent(){
+    this.selectedStudentList.push(Object.assign({}, this.selectedStudent));
+  }
+
+  removeSelectedStudent(index){
+    this.selectedStudentList.splice(index, 1);
   }
 
   logIn = (event) => {

@@ -34,6 +34,7 @@ import { TeacherlistComponent } from './page/admin/teacher/teacherlist/teacherli
 import { SubjectlistComponent } from './page/admin/subject/subjectlist/subjectlist.component';
 import { StudentoptionComponent } from './page/admin/student/studentoption/studentoption.component';
 import { StudentListComponent } from './page/admin/student/student-list/student-list.component';
+import { ParentOptionComponent } from './page/admin/parent/parent-option/parent-option.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { StudentListComponent } from './page/admin/student/student-list/student-
     TeacherlistComponent,
     SubjectlistComponent,
     StudentoptionComponent,
-    StudentListComponent
+    StudentListComponent,
+    ParentOptionComponent
   ],
   imports: [
     BrowserModule,
