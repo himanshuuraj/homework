@@ -1,0 +1,23 @@
+<app-header headerText="Teachers List" backUrlString="teacherOption"></app-header>
+<main-content>
+    <div class="main">
+        <div class="form-group" *ngIf="classAndSectionList.length > 0" style="">
+            <label for="classAndSectionList" style="font-size:1.1em;">Class And Section</label>
+            <select (change)="changeClassAndSection($event)"
+              [(ngModel)]="selectedClassAndSection" name="selectedClassAndSection" class="form-control" 
+              (change)="changeClassAndSection($event)" aria-placeholder="Select Class">
+              <option *ngFor="let classSection of classAndSectionList; let i = index" 
+                [attr.data-index]="i" [ngValue]="classSection">
+                {{ classSection.classAndSectionName }}
+              </option>
+            </select>
+        </div>
+        <div class="alert alert-primary option"
+            *ngFor="let student of studentList; let i = index" [attr.data-index]="i">
+            {{ student.studentName }}
+            <div *ngIf="deleteMode" class="badge" (click)="deleteTeacher($event, option)" >
+                <span> X </span>
+            </div>
+        </div>
+    </div>
+</main-content>
