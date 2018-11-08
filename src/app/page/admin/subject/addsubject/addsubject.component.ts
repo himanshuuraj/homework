@@ -61,11 +61,11 @@ export class AddsubjectComponent implements OnInit {
   }
 
   addSubject(e){
-    if(!this.selectedTeacher.teacherId){
+    if(!this.selectedTeacher._id){
       this.communicatingService.showModal("Message", "Please select a teacher");
       return;
     }
-    if(!this.selectedClassAndSection.classAndSectionId){
+    if(!this.selectedClassAndSection._id){
       this.communicatingService.showModal("Message", "Please select a class");
       return;
     }
@@ -75,9 +75,9 @@ export class AddsubjectComponent implements OnInit {
     }
     let obj = {
       "subjectName": this.subjectName,
-      "teacherId": this.selectedTeacher.teacherId,
+      "teacherId": this.selectedTeacher._id,
       "teacherName": this.selectedTeacher.teacherName,
-      "classAndSectionId": this.selectedClassAndSection.classAndSectionId,
+      "classAndSectionId": this.selectedClassAndSection._id,
       "classAndSectionName": this.selectedClassAndSection.classAndSectionName
     };
     this.communicatingService.hideOrShowSpinner(true);
