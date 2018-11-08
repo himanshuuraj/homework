@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: 'deleteSubject', component: SubjectlistComponent },
   { path: 'studentOption', component: StudentoptionComponent},
   { path: 'studentList', component: StudentListComponent},
+  { path: 'deleteStudent', component: StudentListComponent},
   { path: 'subjectList', component: SubjectlistComponent,
     // children: [
     //     { path: '', component: SubjectListComponent}

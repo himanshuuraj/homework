@@ -21,4 +21,5 @@ export class GlobalUrl{
     API_TO_DELETE_SUBJECT : string = HOST + "/subject/delete/";
 
     API_TO_GET_STUDENT_OF_CLASSANDSECTION : string = HOST + "/student/getStudentOfClassAndSection/";
+    API_TO_DELETE_STUDENT : string = HOST + "/student/delete/";
   }

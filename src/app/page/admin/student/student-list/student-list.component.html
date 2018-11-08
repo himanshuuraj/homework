@@ -1,4 +1,4 @@
-<app-header headerText="Teachers List" backUrlString="teacherOption"></app-header>
+<app-header headerText="Student List" backUrlString="studentOption"></app-header>
 <main-content>
     <div class="main">
         <div class="form-group" *ngIf="classAndSectionList.length > 0" style="">
@@ -15,7 +15,7 @@
         <div class="alert alert-primary option"
             *ngFor="let student of studentList; let i = index" [attr.data-index]="i">
             {{ student.studentName }}
-            <div *ngIf="deleteMode" class="badge" (click)="deleteTeacher($event, option)" >
+            <div *ngIf="deleteMode" class="badge" (click)="deleteStudent($event, student)" >
                 <span> X </span>
             </div>
         </div>

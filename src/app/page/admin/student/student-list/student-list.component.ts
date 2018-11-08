@@ -4,6 +4,7 @@ import { AjaxCallService } from "./../../../../service/ajax-call.service";
 import { GlobalUrl } from "./../../../../../global/url";
 import { GlobalTheme } from "./../../../../../global/theme";
 import { CommunicatingService } from "./../../../../service/communicating-service.service";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-student-list',
@@ -16,15 +17,24 @@ export class StudentListComponent implements OnInit {
   selectedClassAndSection : any = {};
 
   studentList : Array<Object> = [];
+  deleteMode : boolean = false;
 
   constructor(private router:Router, 
     private ajaxCallService : AjaxCallService,
     private globalUrl : GlobalUrl,
     private globalTheme : GlobalTheme,
-    private communicatingService : CommunicatingService) { }
+    private communicatingService : CommunicatingService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.getClassAndSectionList();
+    this.route.params.subscribe(params => {
+      let deleteMode = params['delete']; // (+) converts string 'id' to a number
+      if(deleteMode)
+        this.deleteMode = true;
+      console.log(deleteMode, "deleteMode");
+   });
   }
 
   changeClassAndSection(event){
@@ -38,7 +48,6 @@ export class StudentListComponent implements OnInit {
       console.log(response);
       this.studentList = response.body;
       this.communicatingService.hideOrShowSpinner(false);
-      // this.communicatingService.showModal("Message", response.message);
     }, err => {
       console.log(err);
       this.communicatingService.hideOrShowSpinner(false);
@@ -54,6 +63,23 @@ export class StudentListComponent implements OnInit {
       this.classAndSectionList = response.body;
     }, err => {
       console.log(err);
+      this.communicatingService.showModal("Error", err.toString());
+    });
+  }
+
+  deleteStudent(e, option){
+    let id = option._id;
+    let url = this.globalUrl.API_TO_DELETE_STUDENT + id;
+    this.communicatingService.hideOrShowSpinner(true);
+    this.ajaxCallService.deleteRequest(url).subscribe((res: any) =>{
+      let response = res.json();
+      console.log(response);
+      this.communicatingService.hideOrShowSpinner(false);
+      this.communicatingService.showModal("Message", response.message);
+      this.changeClassAndSection({});
+    }, err => {
+      console.log(err);
+      this.communicatingService.hideOrShowSpinner(false);
       this.communicatingService.showModal("Error", err.toString());
     });
   }
