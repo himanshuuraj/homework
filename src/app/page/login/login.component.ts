@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
       // console.log(this.globalTheme.getToken() + " " + "token");
       this.globalTheme.setGlobalObject({
         userType : this.userType,
-        userObj : response.body
+        userObj : response
       });
       if(this.userType === "teacher")
         this.router.navigateByUrl("userTypeTeacherOption");

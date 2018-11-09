@@ -1,3 +1,60 @@
-<p>
-  add-homework works!
-</p>
+<app-header 
+  headerText="Add Homework"
+  backUrlString="userTypeTeacherOption"
+></app-header>
+<main-content>
+    <div style="height:100%;width:100%;padding:5%;">
+        <form style="height : 100%">
+          <div class="form-group" style="">
+              <label for="subjectList" style="font-size:1.1em;">Subject</label>
+              <select [(ngModel)]="selectedSubject" name="selectedSubject" class="form-control" 
+                aria-placeholder="Select Subject">
+                <option *ngFor="let subject of subjectList; let i = index" 
+                  [attr.data-index]="i" [ngValue]="subject">
+                  <div style="display: flex;justify-content: space-between">
+                  <span>{{ subject.subjectName }}</span>
+                  <span >{{ subject.classAndSectionName }}</span>
+                  </div>
+                </option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="name" style="font-size:1.1em;">
+                Last date to submit
+              </label>
+              <input type="date"
+                [(ngModel)] = "lastDateToSubmit"
+                min="{{todaysDate}}"
+                name="date"
+                class="form-control"
+              />
+            </div>
+          <div class="form-group">
+            <label for="name" style="font-size:1.1em;">
+              Header
+            </label>
+            <input type="text"
+              [(ngModel)] = "header"
+              name="header"
+              class="form-control" 
+              placeholder="Type header"
+            />
+          </div>
+          <div class="form-group">
+            <label for="name" style="font-size:1.1em;">
+              Content
+            </label>
+            <textarea
+              [(ngModel)] = "content"
+              name="content"
+              class="form-control" 
+              placeholder="Type content"
+            >
+            </textarea>
+          </div>
+          <div class="option add" (click)="addHomework();" style="">
+            Add
+          </div>
+        </form>
+    </div>
+</main-content>

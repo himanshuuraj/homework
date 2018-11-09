@@ -14,6 +14,7 @@ import { CommunicatingService } from "./../../service/communicating-service.serv
 export class SignupComponent implements OnInit {
 
   backUrlString : string = "adminOption";
+  todaysDate : any;
 
   selectedOption : String = "";
   userType : String = "";
@@ -102,25 +103,12 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  getTodaysDate(){
-    let today : any = new Date();
-    let dd : any = today.getDate();
-    let mm : any = today.getMonth()+1; //January is 0!
-    let yyyy : any = today.getFullYear();
-    if(dd<10)
-        dd='0'+dd
-    if(mm<10)
-        mm='0'+mm
-    today = yyyy+'-'+mm+'-'+dd;
-    return today;
-  }
-
   constructor(private router:Router, 
     private ajaxCallService : AjaxCallService,
     private globalUrl : GlobalUrl,
     private globalTheme : GlobalTheme,
     private route : ActivatedRoute,
-    private communicatingService : CommunicatingService,
+    private communicatingService : CommunicatingService
   ) { }
 
   getClassAndSectionList(){
@@ -136,6 +124,7 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.todaysDate = this.globalTheme.todaysDay();
     this.route.params.subscribe(params => {
       let type = params['type']; // (+) converts string 'id' to a number
       if(type){

@@ -1,6 +1,6 @@
 <app-header headerText="SignUp" [backUrlString]="backUrlString"></app-header>
 <main-content>
-    <div style="display : block;" style="padding-left: 10%; width: 90%">
+    <div style="padding-left: 10%; width: 90%">
       <!-- <div class="form-group">
         <label for="email" style="font-size:1.1em;">Select User Type</label>
         <select name="userType" [(ngModel)]="userType" 
@@ -66,7 +66,7 @@
           <input type="date"
             name="dob"
             [(ngModel)] = "user.dob"
-            max={getTodaysDate()}
+            max="{{todaysDate}}"
             class="form-control"/>
         </div>
         <div class="form-group" style="">

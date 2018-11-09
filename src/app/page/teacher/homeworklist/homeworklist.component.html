@@ -1,0 +1,12 @@
+<app-header headerText="Homeworks List" backUrlString="userTypeTeacherOption"></app-header>
+<main-content>
+    <div class="main">
+        <div class="alert alert-primary option"
+            *ngFor="let homework of homeworkList; let i = index" [attr.data-index]="i">
+            {{ homework.header }}
+            <div *ngIf="deleteMode" class="badge" (click)="deleteHomework($event, homework)" >
+                <span> X </span>
+            </div>
+        </div>
+    </div>
+</main-content>

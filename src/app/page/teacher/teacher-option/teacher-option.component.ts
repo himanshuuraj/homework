@@ -10,15 +10,18 @@ export class TeacherOptionComponent implements OnInit {
 
   optionList: Array<Object> = [
     {id : "addHomework",  value: "Add Homework"},
-    {id : "viewDetails",  value: "View Details"},
+    {id : "homeworkList",  value: "Homework List"},
     // {id : "editClassAndSection",  value: "Edit Class"},
-    {id : "updateHomework",  value: "Update Homework"}
+    {id : "deleteHomework",  value: "Delete Homework"}
   ];
 
   classOptionClick(e, option){
     console.log(e, option);
     let id = option.id;
-    this.router.navigateByUrl(id);
+    if(id === "deleteHomework")
+      this.router.navigate([id, {delete: true}]);
+    else
+      this.router.navigateByUrl(id);
   }
 
   constructor(private router:Router) { }
