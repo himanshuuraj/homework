@@ -60,6 +60,8 @@ export class LoginComponent implements OnInit {
         userType : this.userType,
         userObj : response.body
       });
+      if(this.userType === "teacher")
+        this.router.navigateByUrl("userTypeTeacherOption");
     }, err => {
       this.communicatingService.hideOrShowSpinner(false);
       this.communicatingService.showModal("Error", err.toString());

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './../page/login/login.component';
 import { OptionsComponent } from "./../page/options/options.component";
 // import { SubjectListComponent } from "./../page/subject-list/subject-list.component";
-import { HomeWorkDetailComponent } from './../page/home-work-detail/home-work-detail.component';
+import { HomeWorkDetailComponent } from './../page/homework/home-work-detail/home-work-detail.component';
 import { SignupComponent } from "./../page/signup/signup.component";
 import { AddclassandsectionComponent } from "./../page/admin/class/addclassandsection/addclassandsection.component";
 import { ClassoptionComponent } from "./../page/admin/class/classoption/classoption.component";
@@ -17,15 +17,21 @@ import { SubjectlistComponent } from "./../page/admin/subject/subjectlist/subjec
 import { StudentoptionComponent } from "./../page/admin/student/studentoption/studentoption.component";
 import { StudentListComponent } from "./../page/admin/student/student-list/student-list.component";
 import { ParentOptionComponent } from "./../page/admin/parent/parent-option/parent-option.component";
+import { AddHomeworkComponent } from "./../page/teacher/add-homework/add-homework.component";
+import { TeacherOptionComponent as TeacherOption } from "./../page/teacher/teacher-option/teacher-option.component";
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'classOption', component: ClassoptionComponent},
   { path: 'viewClassAndSection', component: ListclassandsectionComponent},
   { path: 'deleteClassAndSection', component: ListclassandsectionComponent },
+  { path: 'addHomework', component: AddHomeworkComponent },
+  { path: 'addHomework', component: ListclassandsectionComponent },
   { path: 'login', component: LoginComponent },
   { path: 'option', component: OptionsComponent},
   { path: 'adminOption', component: AdminOptionComponent},
   { path: 'subjectOption', component: SubjectoptionComponent},
+  { path: 'userTypeTeacherOption', component: TeacherOption },
   { path: 'addSubject', component: AddsubjectComponent},
   { path: 'teacherOption', component: TeacherOptionComponent},
   { path: 'teacherList', component: TeacherlistComponent},

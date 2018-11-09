@@ -1,4 +1,4 @@
-.main-content{
+.main-content-content{
     position : relative;
     height : 100vh;
     padding-top : 10%;
@@ -17,6 +17,7 @@
     width: 100%;
     border: 1px solid #eee;
     border-radius: 10px;
+    background-color: white
 }
 
 .card-body{
