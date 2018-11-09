@@ -13,8 +13,9 @@ import { CommunicatingService } from "./../../service/communicating-service.serv
 })
 export class SignupComponent implements OnInit {
 
-  selectedOption : String = "";
+  backUrlString : string = "adminOption";
 
+  selectedOption : String = "";
   userType : String = "";
 
   user : any = {
@@ -87,6 +88,11 @@ export class SignupComponent implements OnInit {
       console.log(response);
       this.communicatingService.hideOrShowSpinner(false);
       this.communicatingService.showModal("Message", response.message);
+      this.globalTheme.setGlobalObject({
+        userType : this.userType,
+        userObject : response.body
+      });
+      this.router.navigateByUrl(this.backUrlString);
       //this.globalTheme.setToken(response.token);
       //console.log(this.globalTheme.getToken() + " " + "token");
     }, err => {
@@ -132,8 +138,10 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       let type = params['type']; // (+) converts string 'id' to a number
-      if(type)
+      if(type){
         this.selectedOption = this.userType = type;
+        this.backUrlString = this.userType + "Option";
+      }
       if(type === "student" || type === "parent")
         this.getClassAndSectionList();
       console.log(type, "type");

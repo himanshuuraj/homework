@@ -1,156 +1,163 @@
-<div class="main-content" style="height : 100vh; padding : 1em;">
-  <div style="height: 100%;">
-  <div
-    style="font-size: 1.8em;display: flex;justify-content: center;align-items: center;"        >
-    <b>Signup</b>
-  </div>
-  <div style="display : block;">
-    <!-- <div class="form-group">
-      <label for="email" style="font-size:1.1em;">Select User Type</label>
-      <select name="userType" [(ngModel)]="userType" 
-        class="form-control">
-        <option value="">Select Option</option>
-        <option value="teacher">Teacher</option>
-        <option value="parent">Parent</option>
-        <option value="student">Student</option>
-      </select>
-    </div> -->
-    <form style="height : 100%">
-      <div class="form-group" style="">
-        <label for="name" style="font-size:1.1em;">Name:</label>
-        <input type="text" 
-        style="" 
-        [(ngModel)] = "user.name"
-        name="name"
-        class="form-control" 
-        placeholder="Enter name"
-        />
-      </div>
-      <div class="form-group" *ngIf="userType === 'student' && classAndSectionList.length > 0" style="">
-        <label for="classAndSectionList" style="font-size:1.1em;">Class And Section</label>
-        <select [(ngModel)]="selectedClassAndSection" name="selectedClassAndSection" class="form-control" 
-          aria-placeholder="Select Class">
-          <option *ngFor="let classSection of classAndSectionList; let i = index" 
-            [attr.data-index]="i" [ngValue]="classSection">
-            {{ classSection.classAndSectionName }}
-          </option>
+<app-header headerText="SignUp" [backUrlString]="backUrlString"></app-header>
+<main-content>
+    <div style="display : block;" style="padding-left: 10%; width: 90%">
+      <!-- <div class="form-group">
+        <label for="email" style="font-size:1.1em;">Select User Type</label>
+        <select name="userType" [(ngModel)]="userType" 
+          class="form-control">
+          <option value="">Select Option</option>
+          <option value="teacher">Teacher</option>
+          <option value="parent">Parent</option>
+          <option value="student">Student</option>
         </select>
-      </div>
-      <div class="form-group" style="">
-        <label for="email" style="font-size:1.1em;">Email:</label>
-        <input type="email"
+      </div> -->
+      <form style="height : 100%">
+        <div class="form-group" style="">
+          <label for="name" style="font-size:1.1em;">Name:</label>
+          <input type="text" 
           style="" 
-          [(ngModel)] = "user.email"
-          name="email"
-          class="form-control"
-          placeholder="Enter email"/>
-      </div>
-      <div class="form-group" style="">
-          <label for="password" style="font-size:1.1em;">Password:</label>
-          <input type="password"
-            style="" 
-            [(ngModel)] = "user.password"
-            class="form-control"
-            name="password"
-            placeholder="Enter password"/>
+          [(ngModel)] = "user.name"
+          name="name"
+          class="form-control" 
+          placeholder="Enter name"
+          />
         </div>
-      <div class="form-group" style="">
-        <label for="phone" style="font-size:1.1em;">Phone:</label>
-        <input type="number"
-        [(ngModel)] = "user.phone"
-        class="form-control" 
-        name="phone"
-        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-        maxlength="10"
-        placeholder="Enter phone"
-        />
-      </div>
-      <div class="form-group" style="">
-        <label for="dob" style="font-size:1.1em;">Date of Birth:</label>
-        <input type="date"
-          name="dob"
-          [(ngModel)] = "user.dob"
-          max={getTodaysDate()}
-          class="form-control"/>
-      </div>
-      <div class="form-group" style="">
-        <label for="gender" style="font-size:1.1em;">Gender</label>
-        <select [(ngModel)] = "user.gender" name="gender" class="form-control">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+        <div class="form-group" *ngIf="userType === 'student' && classAndSectionList.length > 0" style="">
+          <label for="classAndSectionList" style="font-size:1.1em;">Class And Section</label>
+          <select [(ngModel)]="selectedClassAndSection" name="selectedClassAndSection" class="form-control" 
+            aria-placeholder="Select Class">
+            <option *ngFor="let classSection of classAndSectionList; let i = index" 
+              [attr.data-index]="i" [ngValue]="classSection">
+              {{ classSection.classAndSectionName }}
+            </option>
           </select>
-      </div>
-      <div class="form-group" style="">
-        <label for="bgroup" style="font-size:1.1em;">Blood Group:</label>
-        <select [(ngModel)] = "user.bloodGroup" name="bloodgroup" class="form-control">
-          <option *ngFor="let bloodGroup of bloodGroupList" >
-            {{bloodGroup}}
-          </option>
-        </select>
-      </div>
-      
-      <div class="form-group" style="">
-        <label for="address" style="font-size:1.1em;">Address</label>
-        <input [(ngModel)] = "user.address" type="textarea"
-        name="address"
-        class="form-control" 
-        placeholder="Enter address"
-        />
-      </div>
+        </div>
+        <div class="form-group" style="">
+          <label for="email" style="font-size:1.1em;">Email:</label>
+          <input type="email"
+            style="" 
+            [(ngModel)] = "user.email"
+            name="email"
+            class="form-control"
+            placeholder="Enter email"/>
+        </div>
+        <div class="form-group" style="">
+            <label for="password" style="font-size:1.1em;">Password:</label>
+            <input type="password"
+              style="" 
+              [(ngModel)] = "user.password"
+              class="form-control"
+              name="password"
+              placeholder="Enter password"/>
+          </div>
+        <div class="form-group" style="">
+          <label for="phone" style="font-size:1.1em;">Phone:</label>
+          <input type="number"
+          [(ngModel)] = "user.phone"
+          class="form-control" 
+          name="phone"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          maxlength="10"
+          placeholder="Enter phone"
+          />
+        </div>
+        <div class="form-group" style="">
+          <label for="dob" style="font-size:1.1em;">Date of Birth:</label>
+          <input type="date"
+            name="dob"
+            [(ngModel)] = "user.dob"
+            max={getTodaysDate()}
+            class="form-control"/>
+        </div>
+        <div class="form-group" style="">
+          <label for="gender" style="font-size:1.1em;">Gender</label>
+          <select [(ngModel)] = "user.gender" name="gender" class="form-control">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="form-group" style="">
+          <label for="bgroup" style="font-size:1.1em;">Blood Group:</label>
+          <select [(ngModel)] = "user.bloodGroup" name="bloodgroup" class="form-control">
+            <option *ngFor="let bloodGroup of bloodGroupList" >
+              {{bloodGroup}}
+            </option>
+          </select>
+        </div>
+        
+        <div class="form-group" style="">
+          <label for="address" style="font-size:1.1em;">Address</label>
+          <input [(ngModel)] = "user.address" type="textarea"
+          name="address"
+          class="form-control" 
+          placeholder="Enter address"
+          />
+        </div>
 
-      <div *ngIf="userType==='parent'">
-        <div class="container">
-          <div class="row" *ngFor="let selectedStudent of selectedStudentList">
-            <div class="col-sm-8"> {{selectedStudent.studentName}} </div>
-            <div class="col-sm-4"> 
-              <button class="btn" (click)="removeSelectedStudent(index)"> 
-                <i class="fa fa-minus"></i>
-              </button>
+        <div style="border: 1px solid #bbb;
+                    padding: 5% 0 5% 0;
+                    border-radius: 5px;
+                    margin-bottom: 5%;"
+            *ngIf="userType==='parent'">
+          <div class="container" style="margin-bottom : 5%;">
+            <div class="row" style="    display: flex;
+            margin: 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 2%;" *ngFor="let selectedStudent of selectedStudentList">
+              <div class="col-sm-8" style="display: flex;
+              align-items: center;
+              padding: 0;
+              width: 80%;"> {{selectedStudent.studentName}} </div>
+              <div class="col-sm-4" style="padding : 0;"> 
+                <button class="btn" (click)="removeSelectedStudent(index)"> 
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
             </div>
           </div>
+          <div class="container">
+              <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group" *ngIf="classAndSectionList.length > 0" style="">
+                        <label for="classAndSectionList" style="font-size:1.1em;">Class And Section</label>
+                        <select [(ngModel)]="selectedClassAndSection" name="selectedClassAndSection" class="form-control" 
+                          (change)="getStudents($event)" aria-placeholder="Select Class">
+                          <option *ngFor="let classSection of classAndSectionList; let i = index" 
+                            [attr.data-index]="i" [ngValue]="classSection">
+                            {{ classSection.classAndSectionName }}
+                          </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="classAndSectionList" style="font-size:1.1em;">Student</label>
+                    <select [(ngModel)]="selectedStudent" name="selectedStudent" class="form-control" 
+                      aria-placeholder="Select Student">
+                      <option *ngFor="let student of studentList; let i = index" 
+                        [attr.data-index]="i" [ngValue]="student">
+                        {{ student.studentName }}
+                      </option>
+                    </select>
+                </div>
+                <div class="col-sm-4" style="margin-top : 15px;">
+                  <button class="btn" style="width:100%;background-color: #ec8d55;" 
+                  (click)="addSelectedStudent()">Add</button>
+                </div>
+              </div>
+          </div>
         </div>
-        <div class="container">
-            <div class="row">
-              <div class="col-sm-4">
-                  <div class="form-group" *ngIf="classAndSectionList.length > 0" style="">
-                      <label for="classAndSectionList" style="font-size:1.1em;">Class And Section</label>
-                      <select [(ngModel)]="selectedClassAndSection" name="selectedClassAndSection" class="form-control" 
-                        (change)="getStudents($event)" aria-placeholder="Select Class">
-                        <option *ngFor="let classSection of classAndSectionList; let i = index" 
-                          [attr.data-index]="i" [ngValue]="classSection">
-                          {{ classSection.classAndSectionName }}
-                        </option>
-                      </select>
-                  </div>
-              </div>
-              <div class="col-sm-4">
-                  <label for="classAndSectionList" style="font-size:1.1em;">Student</label>
-                  <select [(ngModel)]="selectedStudent" name="selectedStudent" class="form-control" 
-                    aria-placeholder="Select Student">
-                    <option *ngFor="let student of studentList; let i = index" 
-                      [attr.data-index]="i" [ngValue]="student">
-                      {{ student.studentName }}
-                    </option>
-                  </select>
-              </div>
-              <div class="col-sm-4">
-                <button class="btn" (click)="addSelectedStudent()">Add</button>
-              </div>
-            </div>
-        </div>
-      </div>
 
-      <div class="form-group login" style="height:2.5em"
-        (click)="onSignUp($event)">
-          <b>Create</b>
-      </div>
-        <!-- <a
-          style="display:flex; justify-content:center; margin-bottom : 5%;"
-          (click)="logIn($event)"
-          >
-            <span><b><u>Log In</u></b></span>
-        </a> -->
-    </form>
-  </div>
-</div>
-</div>
+        <div class="form-group login" style="height:2.5em"
+          (click)="onSignUp($event)">
+            <b>Create</b>
+        </div>
+          <!-- <a
+            style="display:flex; justify-content:center; margin-bottom : 5%;"
+            (click)="logIn($event)"
+            >
+              <span><b><u>Log In</u></b></span>
+          </a> -->
+      </form>
+    </div>
+</main-content>

@@ -4,7 +4,9 @@ let HOST = "http://localhost:8080";
 
 Injectable()
 export class GlobalUrl{
-    API_LOGIN : string =  HOST + "/parent/login";
+    API_PARENT_LOGIN : string =  HOST + "/parent/login";
+    API_TEACHER_LOGIN : string =  HOST + "/teacher/login";
+    
     API_SIGN_UP_PARENT : string = HOST + "/parent/create";
     API_SIGN_UP_TEACHER : string = HOST + "/teacher/create";
     API_SIGN_UP_STUDENT : string = HOST + "/student/create";

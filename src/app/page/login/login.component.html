@@ -10,7 +10,16 @@
           <span>For instance Login to your AppName account,</span>
           <span>just enter your valid, Email Id and password</span>
         </div>
-        <form style="height : 36%">
+        <form style="">
+          <div class="form-group" style="">
+            <label for="userType" style="font-size:1.1em;">User Type</label>
+            <select [(ngModel)]="userType" name="userType" class="form-control" 
+              aria-placeholder="Select User Type">
+              <option value="">Select User Type</option>
+              <option value="teacher"> Teacher </option>
+              <option value="parent"> Parent </option>
+            </select>
+          </div>
           <div class="form-group" style="height : 45%">
             <label for="email" style="font-size:1.1em;">Email:</label>
             <input type="email" 
@@ -36,16 +45,16 @@
         >
           <b>Login</b>
         </div>
-        <a
+        <!-- <a
           style="display:flex; justify-content:center; margin-top : 5%;"
           (click)="signUp($event)"
           >
             <span><b><u>Sign Up</u></b></span>
-        </a>
-        <div
+        </a> -->
+        <!-- <div
           style="
             height: 25%;
           "
-        ></div>
+        ></div> -->
       </div>
       </div>
