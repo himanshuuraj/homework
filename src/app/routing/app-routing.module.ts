@@ -22,12 +22,14 @@ import { TeacherOptionComponent as TeacherOption } from "./../page/teacher/teach
 import { HomeworklistComponent } from "./../page/teacher/homeworklist/homeworklist.component";
 import { ParentoptionComponent } from "./../page/parent/parentoption/parentoption.component";
 import { HomeworkListComponent } from "./../page/parent/homework-list/homework-list.component";
+import { SelectstudentComponent } from "./../page/parent/selectstudent/selectstudent.component";
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'classOption', component: ClassoptionComponent},
   { path: 'viewClassAndSection', component: ListclassandsectionComponent},
   { path: 'deleteClassAndSection', component: ListclassandsectionComponent },
   { path: 'addHomework', component: AddHomeworkComponent },
+  { path: 'selectStudent', component: SelectstudentComponent},
   { path: 'addHomework', component: ListclassandsectionComponent },
   { path: 'viewHomework', component: HomeworkListComponent },
   { path : 'userTypeParentOption', component : ParentoptionComponent},

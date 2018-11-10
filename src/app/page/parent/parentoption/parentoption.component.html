@@ -1,12 +1,19 @@
 
 <app-header 
 headerText="Options"
+hideArrow=true
 ></app-header>
 <main-content>
+    <div style="text-align: center;" (click)="logout()">
+    Student Name :- <span>{{selectedStudent.studentName}}</span>
+    </div>
     <div class="main">
         <div class="alert alert-primary option" (click)="classOptionClick($event, option)"
             *ngFor="let option of optionList; let i = index" [attr.data-index]="i">
             {{ option.value }}
         </div>
+    </div>
+    <div style="text-align: center;" (click)="logout()">
+        <span><b><u>Logout</u></b></span>
     </div>
 </main-content>

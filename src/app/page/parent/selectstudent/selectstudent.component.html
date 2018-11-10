@@ -1,0 +1,15 @@
+<app-header 
+headerText="Select Student"
+backUrlString="userTypeParentOption"
+></app-header>
+<main-content>
+    <div class="main">
+        <div class="alert alert-primary option" (click)="selectStudent($event, option)"
+            *ngFor="let option of optionList; let i = index" [attr.data-index]="i">
+            {{ option.studentName }}
+        </div>
+    </div>
+    <!-- <div style="text-align: center;" (click)="logout()">
+        <span><b><u>Logout</u></b></span>
+    </div> -->
+</main-content>

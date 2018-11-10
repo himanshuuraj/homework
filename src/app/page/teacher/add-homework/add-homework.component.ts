@@ -26,7 +26,7 @@ export class AddHomeworkComponent implements OnInit {
     private globalUrl : GlobalUrl,
     private globalTheme : GlobalTheme,
     private route : ActivatedRoute,
-    private communicatingService : CommunicatingService,
+    private communicatingService : CommunicatingService
   ) { }
 
   getSubjectlist(){

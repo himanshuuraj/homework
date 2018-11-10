@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GlobalTheme } from "./../../../../global/theme";
 
 @Component({
   selector: 'app-parentoption',
@@ -8,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class ParentoptionComponent implements OnInit {
 
+  selectedStudent : any = {};
+
   optionList: Array<Object> = [
     {id : "viewHomework",  value: "View Homework"},
     {id : "selectStudent",  value: "Select Student"},
-    // {id : "editClassAndSection",  value: "Edit Class"},
-    // {id : "deleteHomework",  value: "Delete Homework"}
+    {id : "notice",  value: "Notice"},
+    {id : "schedule",  value: "Schedule"}
   ];
 
   classOptionClick(e, option){
@@ -24,9 +27,16 @@ export class ParentoptionComponent implements OnInit {
       this.router.navigateByUrl(id);
   }
 
-  constructor(private router:Router) { }
+  logout(){
+    this.router.navigateByUrl("/");
+  }
+
+  constructor(private router:Router, private globalTheme : GlobalTheme) {
+    
+   }
 
   ngOnInit() {
+    this.selectedStudent = this.globalTheme.getGlobalObject("selectedStudent");
   }
 
 }

@@ -24,6 +24,10 @@ export class TeacherOptionComponent implements OnInit {
       this.router.navigateByUrl(id);
   }
 
+  logout(){
+    this.router.navigateByUrl("/");
+  }
+
   constructor(private router:Router) { }
 
   ngOnInit() {

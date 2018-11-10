@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() headerText: string;
   @Input() backUrlString: string ;
+  @Input() hideArrow:boolean;
   // @Output()
   // backButtonClick: EventEmitter<String> = new EventEmitter<String>(); //creating an output event
   // https://ciphertrick.com/2017/07/24/parent-child-component-communication-angular/
