@@ -1,0 +1,53 @@
+<app-header headerText="Homework List" backUrlString="userTypeParentOption"></app-header>
+<main-content>
+    <div class="main">
+        <div class="option" style="width:100%; font-size: 1.2em;margin-bottom:5%;"
+            *ngFor="let subject of homeworkList; let i = index" [attr.data-index]="i">
+            <div class="container" style="padding-top: 2%; padding-bottom: 2%;">
+                <div class="row" style="display: flex;">
+                    <div class="col-sm-6" style="width : 40%; font-size:0.8em;">
+                        <span>Name</span>
+                    </div>
+                    <div class="col-sm-6" style="width : 60%">
+                        <span>{{subject.subjectName}}</span>
+                    </div>
+                </div>
+                <!-- <div class="row" style="display: flex;">
+                    <div class="col-sm-6" style="width : 40%; font-size:0.8em;">
+                        <span>ClassSection</span>
+                    </div>
+                    <div class="col-sm-6" style="width : 60%">
+                        <span>{{subject.classAndSectionName}}</span>
+                    </div>
+                </div> -->
+                <div class="row" style="display: flex;">
+                    <div class="col-sm-6" style="width : 40%; font-size:0.8em;">
+                        <span>Teacher</span>
+                    </div>
+                    <div class="col-sm-6" style="width : 60%">
+                        <span>{{subject.teacherName}}</span>
+                    </div>
+                </div>
+                <div class="row" style="display: flex;">
+                  <div class="col-sm-6" style="width : 40%; font-size:0.8em;">
+                      <span>Created At</span>
+                  </div>
+                  <div class="col-sm-6" style="width : 60%">
+                      <span>{{getDateString(subject.createdAt)}}</span>
+                  </div>
+              </div>
+              <div class="row" style="display: flex;">
+                <div class="col-sm-6" style="width : 40%; font-size:0.8em;">
+                    <span>Last Date to submit</span>
+                </div>
+                <div class="col-sm-6" style="width : 60%">
+                    <span>{{getDateString(subject.lastDateToSubmit)}}</span>
+                </div>
+            </div>
+            </div>
+            <div *ngIf="deleteMode" class="badge" (click)="deleteSubject($event, subject)" >
+                <span> X </span>
+            </div>
+        </div>
+    </div>
+</main-content>

@@ -9,7 +9,7 @@ import { GlobalUrl } from "./../global/url";
 import { FooterComponent } from './usableComponent/footer/footer.component';
 import { HeaderComponent } from './usableComponent/header/header.component';
 import { HeaderAndFooterComponent } from './usableComponent/header-and-footer/header-and-footer.component';
-import { HomeWorkDetailComponent } from './page/homework/home-work-detail/home-work-detail.component';
+import { HomeWorkDetailComponent } from './page/parent/home-work-detail/home-work-detail.component';
 import { SignupComponent } from './page/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AjaxCallService } from "./service/ajax-call.service";
@@ -33,6 +33,8 @@ import { ParentOptionComponent } from './page/admin/parent/parent-option/parent-
 import { AddHomeworkComponent } from './page/teacher/add-homework/add-homework.component';
 import { TeacherOptionComponent as TeacherOption } from "./page/teacher/teacher-option/teacher-option.component";
 import { HomeworklistComponent } from './page/teacher/homeworklist/homeworklist.component';
+import { ParentoptionComponent } from './page/parent/parentoption/parentoption.component';
+import { HomeworkListComponent } from './page/parent/homework-list/homework-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,9 @@ import { HomeworklistComponent } from './page/teacher/homeworklist/homeworklist.
     StudentListComponent,
     ParentOptionComponent,
     AddHomeworkComponent,
-    HomeworklistComponent
+    HomeworklistComponent,
+    ParentoptionComponent,
+    HomeworkListComponent
   ],
   imports: [
     BrowserModule,

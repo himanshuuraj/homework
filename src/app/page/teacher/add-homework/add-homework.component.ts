@@ -55,6 +55,8 @@ export class AddHomeworkComponent implements OnInit {
       "content": this.content,
       "teacherId": userObj._id,
       "teacherName": userObj.teacherName,
+      "classAndSectionId" : this.selectedSubject.classAndSectionId,
+      "classAndSectionName" : this.selectedSubject.classAndSectionName,
       "lastDateToSubmit" : new Date(this.lastDateToSubmit).getTime()
     };
     let url = this.globalUrl.API_TO_ADD_HOMEWORK;

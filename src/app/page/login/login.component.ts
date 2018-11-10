@@ -50,18 +50,31 @@ export class LoginComponent implements OnInit {
     let loginSubscriber = this.ajaxCallService.postRequest(url, obj);
     loginSubscriber.subscribe((res: any) =>{
       let response = res.json();
+      if(response.success ===  false){
+        this.communicatingService.hideOrShowSpinner(false);
+        this.communicatingService.showModal("Error", response.message);
+        return;
+      }
       response = response.body;
       console.log(res.json(), 50);
       this.communicatingService.hideOrShowSpinner(false);
       // this.communicatingService.showModal("Message", response.message);
       // this.globalTheme.setToken(response.token);
       // console.log(this.globalTheme.getToken() + " " + "token");
-      this.globalTheme.setGlobalObject({
-        userType : this.userType,
-        userObj : response
-      });
-      if(this.userType === "teacher")
+      if(this.userType === "teacher"){
+        this.globalTheme.setGlobalObject({
+          userType : this.userType,
+          userObj : response
+        });
         this.router.navigateByUrl("userTypeTeacherOption");
+      }else if(this.userType === "parent"){
+        this.globalTheme.setGlobalObject({
+          userType : this.userType,
+          userObj : response,
+          selectedStudent : response.student[0]
+        });
+        this.router.navigateByUrl("userTypeParentOption");
+      }
     }, err => {
       this.communicatingService.hideOrShowSpinner(false);
       this.communicatingService.showModal("Error", err.toString());

@@ -36,4 +36,11 @@ export class GlobalTheme{
       today = yyyy+'-'+mm+'-'+dd;
       return today
     }
+    public getDateString(data){
+      if (!data) return "N/A";
+      var date = new Date(data);
+      return (
+        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+      );
+    }
   }

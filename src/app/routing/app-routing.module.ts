@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './../page/login/login.component';
 import { OptionsComponent } from "./../page/options/options.component";
 // import { SubjectListComponent } from "./../page/subject-list/subject-list.component";
-import { HomeWorkDetailComponent } from './../page/homework/home-work-detail/home-work-detail.component';
+import { HomeWorkDetailComponent } from './../page/parent/home-work-detail/home-work-detail.component';
 import { SignupComponent } from "./../page/signup/signup.component";
 import { AddclassandsectionComponent } from "./../page/admin/class/addclassandsection/addclassandsection.component";
 import { ClassoptionComponent } from "./../page/admin/class/classoption/classoption.component";
@@ -20,6 +20,8 @@ import { ParentOptionComponent } from "./../page/admin/parent/parent-option/pare
 import { AddHomeworkComponent } from "./../page/teacher/add-homework/add-homework.component";
 import { TeacherOptionComponent as TeacherOption } from "./../page/teacher/teacher-option/teacher-option.component";
 import { HomeworklistComponent } from "./../page/teacher/homeworklist/homeworklist.component";
+import { ParentoptionComponent } from "./../page/parent/parentoption/parentoption.component";
+import { HomeworkListComponent } from "./../page/parent/homework-list/homework-list.component";
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'classOption', component: ClassoptionComponent},
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'deleteClassAndSection', component: ListclassandsectionComponent },
   { path: 'addHomework', component: AddHomeworkComponent },
   { path: 'addHomework', component: ListclassandsectionComponent },
+  { path: 'viewHomework', component: HomeworkListComponent },
+  { path : 'userTypeParentOption', component : ParentoptionComponent},
   { path: 'login', component: LoginComponent },
   { path: 'option', component: OptionsComponent},
   { path: 'adminOption', component: AdminOptionComponent},

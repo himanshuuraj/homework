@@ -29,4 +29,6 @@ export class GlobalUrl{
     API_TO_ADD_HOMEWORK : string = HOST + "/homework/create";
     API_TO_GET_HOMEWORK_BY_TECAHER : string = HOST + "/homework/get/teacher/";
     API_TO_DELETE_HOMEWORK : string = HOST + "/homework/delete/";
+
+    API_TO_GET_HOMEWORK_OF_CLASS : string = HOST + "/homework/classAndSectionId/";
   }
